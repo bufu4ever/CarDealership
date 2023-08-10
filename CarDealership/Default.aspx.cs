@@ -10,8 +10,10 @@ namespace CarDealership
     {
 
         // מחרוזת חיבור למסד הנתונים
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Inventory.mdf;Integrated Security=True;Connect Timeout=30";
-
+        private string connectionString
+        {
+            get { return Application["ConnectionString"].ToString(); }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -159,12 +161,12 @@ namespace CarDealership
         }
         private void ClearForm()
         {
-            // נקה את כל שדות הקלט והשדה הנסתר
+            //    נקה את כל שדות הקלט והשדה הנסתר
             txtBrand.Text = string.Empty;
             txtModel.Text = string.Empty;
             txtYear.Text = string.Empty;
             txtPrice.Text = string.Empty;
             hfCarId.Value = string.Empty;
         }
-    }
+}
 }

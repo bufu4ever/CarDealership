@@ -8,8 +8,10 @@ namespace CarDealership
     public partial class ViewCar : System.Web.UI.Page
     {
         // מחרוזת החיבור משמשת לחיבור למסד הנתונים. זה כולל את שם השרת, שם מסד הנתונים, פרטי אימות ועוד.
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Inventory.mdf;Integrated Security=True;Connect Timeout=30";
-
+        private string connectionString
+        {
+            get { return Application["ConnectionString"].ToString(); }
+        }
         // CarId הוא משתנה שיאחסן את המזהה של המכונית שעבורה להציג פרטים
         private int CarId;
 
